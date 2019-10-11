@@ -547,6 +547,12 @@ class Docker {
                                 Type: 'bind',
                                 ReadOnly: true,
                             },
+                            { // MODIFICATION TO ALLOW SHARED FOLDER (CSS-Contents)
+                                Target: '/shared',
+                                Source: '/srv/daemon/daemon-shared',
+                                Type: 'bind',
+                                ReadOnly: true
+                            }
                         ],
                         Tmpfs: {
                             '/tmp': Config.get('docker.policy.container.tmpfs', 'rw,exec,nosuid,size=50M'),
